@@ -23,10 +23,15 @@ export default (
     case REMOVE_MOVIE_FROM_LIST:
       return {
         data: {
-          ...state.data,
           mylist: state.data.mylist.filter(
             item => item.id !== action.payload.id
           ),
+          recommendations:
+            state.data.recommendations.filter(
+              item => item.id === action.payload.id
+            ).length === 0
+              ? [...state.data.recommendations, action.payload]
+              : state.data.recommendations,
         },
       };
     default:
