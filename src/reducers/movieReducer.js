@@ -16,8 +16,10 @@ export default (
     case ADD_MOVIE_TO_LIST:
       return {
         data: {
-          ...state.data,
           mylist: [...state.data.mylist, action.payload],
+          recommendations: state.data.recommendations.filter(
+            item => item.id != action.payload.id
+          ),
         },
       };
     case REMOVE_MOVIE_FROM_LIST:
