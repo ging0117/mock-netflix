@@ -12,16 +12,12 @@ class MovieCard extends Component {
         />
         <p className="title">{this.props.item.title}</p>
         <div className="overlay" />
-        {this.props.isAdded ? (
-          <button className="button">Added!</button>
-        ) : (
-          <button
-            className="button"
-            onClick={() => this.props.onClick(this.props.item)}
-          >
-            {this.props.type === 'remove' ? 'Remove' : 'Add'}
-          </button>
-        )}
+        <button
+          className="button"
+          onClick={() => this.props.onClick(this.props.item)}
+        >
+          {this.props.type === 'remove' ? 'Remove' : 'Add'}
+        </button>
       </div>
     );
   }

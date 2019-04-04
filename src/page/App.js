@@ -38,21 +38,26 @@ class App extends Component {
             type="remove"
             key={item.id}
             item={item}
-            isAdded={false}
             onClick={this.handleRemove}
           />
         ))
       );
 
-    const recommandationList = recommandationsList.map(item => (
-      <MovieCard
-        type="add"
-        key={item.id}
-        item={item}
-        isAdded={myList.filter(value => value.id === item.id).length === 1}
-        onClick={this.handleAdd}
-      />
-    ));
+    const recommandationListView =
+      recommandationsList.length === 0 ? (
+        <div className="no-data-messege">
+          We do not have any recommendations for you.
+        </div>
+      ) : (
+        recommandationsList.map(item => (
+          <MovieCard
+            type="add"
+            key={item.id}
+            item={item}
+            onClick={this.handleAdd}
+          />
+        ))
+      );
 
     return (
       <div className="app">
@@ -64,7 +69,9 @@ class App extends Component {
         </header>
         <div className="app-body">
           <MovieList title="My List">{movieList}</MovieList>
-          <MovieList title="Recommandations">{recommandationList}</MovieList>
+          <MovieList title="Recommandations">
+            {recommandationListView}
+          </MovieList>
           <div style={{ marginTop: 30, color: '#ccc' }}>
             My List: {myList.map(item => item.title + ', ')}
           </div>
