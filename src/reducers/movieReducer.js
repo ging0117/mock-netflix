@@ -28,12 +28,7 @@ export default (
           mylist: state.data.mylist.filter(
             item => item.id !== action.payload.id
           ),
-          recommendations:
-            state.data.recommendations.filter(
-              item => item.id === action.payload.id
-            ).length === 0
-              ? [...state.data.recommendations, action.payload]
-              : state.data.recommendations,
+          recommendations: [...state.data.recommendations, action.payload],
         },
       };
     default:
