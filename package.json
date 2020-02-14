@@ -10,7 +10,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.0.2",
     "whatwg-fetch": "^3.0.0",
-    "yarn": "^1.15.2"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "react-scripts": "2.1.8"
